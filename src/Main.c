@@ -24,7 +24,7 @@ void Setup(AlxWindow* w){
         const float a = (float)i / (float)NODES_COUNT * F32_PI2;
         const float x = cosf(a) * 100.0f;
         const float y = sinf(a) * 100.0f;
-        Vector_Push(&path.points,(Vec2[]){ x,y });
+        Vector_Push(&path,(Vec2[]){ x,y });
     }
     
     dps = CRSpline_DP_Make(NODES_COUNT);
@@ -75,7 +75,7 @@ void Update(AlxWindow* w){
 
 
     Ship += 0.1f * w->ElapsedTime;
-    Ship = Ship>path.points.size?0.0f:Ship;
+    Ship = Ship>path.size?0.0f:Ship;
 
     CRSpline_Free(&rl);
     CRSpline_Free(&si);
